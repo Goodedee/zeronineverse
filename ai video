@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Video Studio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #111321;
+      color: white;
+      font-family: system-ui, sans-serif;
+    }
+    main {
+      max-width: 650px;
+      margin: auto;
+    }
+    textarea, select, button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      font: inherit;
+    }
+    textarea, select {
+      background: #222538;
+      color: white;
+      border: 1px solid #555975;
+    }
+    button {
+      background: #a78bfa;
+      color: #111321;
+      border: 0;
+      font-weight: bold;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      background: #222538;
+      padding: 14px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>AI Video Studio 🎬</h1>
+  <p>เปลี่ยนไอเดียให้เป็น Prompt สำหรับ AI Video</p>
+
+  <label for="idea">ไอเดียของคุณ</label>
+  <textarea id="idea" rows="4">นักบินอวกาศเดินในกรุงเทพฯ แห่งอนาคต</textarea>
+
+  <label for="style">สไตล์วิดีโอ</label>
+  <select id="style">
+    <option>Cinematic realism</option>
+    <option>Anime cinematic</option>
+    <option>High-end 3D animation</option>
+    <option>Fashion commercial</option>
+  </select>
+
+  <button onclick="makePrompt()">สร้าง Prompt</button>
+
+  <h2>ผลลัพธ์</h2>
+  <pre id="result">Prompt จะปรากฏตรงนี้</pre>
+</main>
+
+<script>
+function makePrompt() {
+  const idea = document.getElementById("idea").value.trim();
+  const style = document.getElementById("style").value;
+
+  if (!idea) {
+    document.getElementById("result").textContent =
+      "กรุณาพิมพ์ไอเดียก่อนครับ";
+    return;
+  }
+
+  document.getElementById("result").textContent =
+    "Create a cinematic video of " + idea +
+    ". Visual style: " + style +
+    ". Smooth camera movement, realistic motion, " +
+    "consistent characters, detailed environment, " +
+    "professional lighting and cinematic color grading.";
+}
+</script>
+</body>
+</html>
